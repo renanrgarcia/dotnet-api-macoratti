@@ -1,6 +1,6 @@
-@APICatalogo_HostAddress = http://localhost:5104
+@ApiCatalogo_HostAddress = http://localhost:5095
 
-GET {{APICatalogo_HostAddress}}/weatherforecast/
+GET {{ApiCatalogo_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

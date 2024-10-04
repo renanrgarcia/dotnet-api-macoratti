@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\renan\\Projects\\net8-api-macoratti\\section3\\APICatalogo\\APICatalogo.csproj": {}
+    "C:\\Users\\16864107\\Projects\\net8-api-macoratti\\section3\\ApiCatalogo\\ApiCatalogo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\renan\\Projects\\net8-api-macoratti\\section3\\APICatalogo\\APICatalogo.csproj": {
+    "C:\\Users\\16864107\\Projects\\net8-api-macoratti\\section3\\ApiCatalogo\\ApiCatalogo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\renan\\Projects\\net8-api-macoratti\\section3\\APICatalogo\\APICatalogo.csproj",
-        "projectName": "APICatalogo",
-        "projectPath": "C:\\Users\\renan\\Projects\\net8-api-macoratti\\section3\\APICatalogo\\APICatalogo.csproj",
-        "packagesPath": "C:\\Users\\renan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\renan\\Projects\\net8-api-macoratti\\section3\\APICatalogo\\obj\\",
+        "projectUniqueName": "C:\\Users\\16864107\\Projects\\net8-api-macoratti\\section3\\ApiCatalogo\\ApiCatalogo.csproj",
+        "projectName": "ApiCatalogo",
+        "projectPath": "C:\\Users\\16864107\\Projects\\net8-api-macoratti\\section3\\ApiCatalogo\\ApiCatalogo.csproj",
+        "packagesPath": "C:\\Users\\16864107\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\16864107\\Projects\\net8-api-macoratti\\section3\\ApiCatalogo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\renan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\16864107\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,16 +43,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.8, )"
-            },
-            "Pomelo.EntityFrameworkCore.MySql": {
-              "target": "Package",
-              "version": "[8.0.2, )"
-            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -80,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
