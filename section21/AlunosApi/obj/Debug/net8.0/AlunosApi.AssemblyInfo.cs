@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AlunosApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7bfa84e53c2d6f532d45a5c72b47217dda0aa65d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ea31f70589f8006f1bb239cd17538c4da83807b")]
 [assembly: System.Reflection.AssemblyProductAttribute("AlunosApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AlunosApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
