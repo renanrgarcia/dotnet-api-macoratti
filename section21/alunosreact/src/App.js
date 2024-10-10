@@ -113,6 +113,26 @@ function App() {
           <button className="btn btn-danger" onClick={() => abrirFecharModalIncluir()} >Cancelar</button>
         </ModalFooter>
       </Modal>
+
+      <Modal>
+        <ModalHeader>Editar Alunos</ModalHeader>
+        <ModalBody>
+          <div className="form-group">
+            <label>ID: </label>
+            <input readOnly value={alunoSelecionado && alunoSelecionado.id} />
+            <br />
+            <label>Nome: </label><br />
+            <input type="text" className="form-control" name="nome" />
+            <br />
+            <label>Email: </label><br />
+            <input type="text" className="form-control" name="email" />
+            <br />
+            <label>Idade: </label><br />
+            <input type="text" className="form-control" name="idade" />
+            <br />
+          </div>
+        </ModalBody>
+      </Modal>
     </div>
   );
 }
