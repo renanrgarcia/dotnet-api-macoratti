@@ -16,23 +16,10 @@ namespace ApiCatalogo.Controllers
             _context = context;
         }
 
-        // [HttpGet("first")] // url/api/products/first
-        // [HttpGet("/first")] // url/api/first
-        [HttpGet("valor:alpha:length(5)")] // url/api/products/valor com 5 caracteres
-        [HttpGet("valor:alpha:maxlength(5)")] // url/api/products/valor com no max 5 caracteres
-        public ActionResult<Product> GetFirst()
-        {
-            var product = _context.Products?.FirstOrDefault();
-            if (product is null)
-                return NotFound("Product not found");
-
-            return product;
-        }
-
         [HttpGet]
-        public ActionResult<IEnumerable<Product>> Get()
+        public async Task<ActionResult<IEnumerable<Product>>> Get()
         {
-            var products = _context.Products?.ToList();
+            var products = await _context.Products?.ToListAsync();
             if (products is null)
                 return NotFound("Products not found");
 
@@ -40,9 +27,9 @@ namespace ApiCatalogo.Controllers
         }
 
         [HttpGet("{id:int:min(1)}", Name = "GetProduct")] // url/api/products/1
-        public ActionResult<Product> Get(int id)
+        public async Task<ActionResult<Product>> Get(int id)
         {
-            var product = _context.Products?.FirstOrDefault(p => p.ProductId == id);
+            var product = await _context.Products?.FirstOrDefaultAsync(p => p.ProductId == id);
             if (product is null)
                 return NotFound("Product not found");
 
