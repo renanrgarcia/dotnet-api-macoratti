@@ -13,7 +13,7 @@ public class Product : IValidatableObject
     [Required(ErrorMessage = "The product name cannot be null")]
     [StringLength(20, ErrorMessage = "The product name must be at most 20 characters long"), MinLength(5)]
     // [ToUpperFirstLetter]
-    public string? Name { get; set; }
+    public string Name { get; set; }
     [Required]
     [StringLength(300)]
     public string? Description { get; set; }

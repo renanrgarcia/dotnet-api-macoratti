@@ -11,10 +11,14 @@ namespace ApiCatalogo.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public CategoriesController(AppDbContext context, IMyService myService)
+        public CategoriesController(AppDbContext context,
+                                    IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
+
         }
 
         // [HttpGet("UsingFromServices/{name}")]
@@ -28,6 +32,16 @@ namespace ApiCatalogo.Controllers
         // {
         //     return myService.Greeting(name);
         // }
+
+        [HttpGet("ReadConfigurationFile")]
+        public ActionResult<string> GetConfiguration()
+        {
+            var value1 = _configuration["Key1"];
+            var value2 = _configuration["Key2"];
+            var section1 = _configuration["Section1:Key1"];
+
+            return $"Key1: {value1} | Key2: {value2} | Section1 => Key1: {section1}";
+        }
 
         [HttpGet("products")]
         public ActionResult<IEnumerable<Category>> GetCategoriesProducts()
