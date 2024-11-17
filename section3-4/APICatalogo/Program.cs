@@ -1,5 +1,7 @@
 using System.Text.Json.Serialization;
 using ApiCatalogo.Context;
+using APICatalogo.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
 
@@ -23,6 +25,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(mySqlConnection,
         ServerVersion.AutoDetect(mySqlConnection));
 });
+
+builder.Services.AddTransient<IMyService, MyService>();
+
+// // Forces to use like before .net 7, forcing to use [FromServices] attribute
+// builder.Services.Configure<ApiBehaviorOptions>(options =>
+// {
+//     options.DisableImplicitFromServicesParameters = true;
+// });
 
 var app = builder.Build();
 

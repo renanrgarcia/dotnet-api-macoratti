@@ -2,6 +2,7 @@ using ApiCatalogo.Context;
 using ApiCatalogo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using APICatalogo.Services;
 
 namespace ApiCatalogo.Controllers
 {
@@ -11,10 +12,22 @@ namespace ApiCatalogo.Controllers
     {
         private readonly AppDbContext _context;
 
-        public CategoriesController(AppDbContext context)
+        public CategoriesController(AppDbContext context, IMyService myService)
         {
             _context = context;
         }
+
+        // [HttpGet("UsingFromServices/{name}")]
+        // public ActionResult<string> GetGreetingsFromServices([FromServices] IMyService myService, string name)
+        // {
+        //     return myService.Greeting(name);
+        // }
+
+        // [HttpGet("NotUsingFromServices/{name}")]
+        // public ActionResult<string> GetGreetingsWithoutFromServices(IMyService myService, string name)
+        // {
+        //     return myService.Greeting(name);
+        // }
 
         [HttpGet("products")]
         public ActionResult<IEnumerable<Category>> GetCategoriesProducts()
