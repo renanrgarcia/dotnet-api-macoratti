@@ -40,10 +40,11 @@ namespace ApiCatalogo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post(Product product)
+        public ActionResult Post([FromBody] Product product)
         {
-            if (product is null)
-                return BadRequest();
+            // // Don't need, because of [ApiController] attribute
+            // if (!ModelState.IsValid)
+            //     return BadRequest(ModelState);
 
             _context.Products?.Add(product);
             _context.SaveChanges();
