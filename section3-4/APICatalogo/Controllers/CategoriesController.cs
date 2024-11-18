@@ -64,6 +64,13 @@ namespace ApiCatalogo.Controllers
         [HttpGet("{id:int}", Name = "GetCategory")]
         public ActionResult<Category> Get(int id)
         {
+            // throw new Exception("Exception while fetching a category by id.");
+            string[] teste = null;
+            if (teste.Length > 0)
+            {
+                // Do something
+            }
+
             var category = _context.Categories?.FirstOrDefault(p => p.CategoryId == id);
             if (category is null)
                 return NotFound("Category not found.");
