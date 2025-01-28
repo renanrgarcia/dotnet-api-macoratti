@@ -4522,24 +4522,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\16864107\\.nuget\\packages\\": {}
+    "/home/renandev/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\16864107\\Projects\\net8-api-macoratti\\section21\\AlunosApi\\AlunosApi.csproj",
+      "projectUniqueName": "/home/renandev/Projects/net8-api-macoratti/section21/AlunosApi/AlunosApi.csproj",
       "projectName": "AlunosApi",
-      "projectPath": "C:\\Users\\16864107\\Projects\\net8-api-macoratti\\section21\\AlunosApi\\AlunosApi.csproj",
-      "packagesPath": "C:\\Users\\16864107\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\16864107\\Projects\\net8-api-macoratti\\section21\\AlunosApi\\obj\\",
+      "projectPath": "/home/renandev/Projects/net8-api-macoratti/section21/AlunosApi/AlunosApi.csproj",
+      "packagesPath": "/home/renandev/.nuget/packages/",
+      "outputPath": "/home/renandev/Projects/net8-api-macoratti/section21/AlunosApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\16864107\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/renandev/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "/usr/lib/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4557,7 +4558,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -4589,6 +4591,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[8.0.12, 8.0.12]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -4597,7 +4605,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
