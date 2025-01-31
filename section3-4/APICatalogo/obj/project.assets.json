@@ -2530,27 +2530,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\renan\\.nuget\\packages\\": {}
+    "C:\\Users\\16864107\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\renan\\Projects\\net8-api-macoratti\\section3-4\\APICatalogo\\ApiCatalogo.csproj",
+      "projectUniqueName": "C:\\Users\\16864107\\Projects\\net8-api-macoratti\\section3-4\\APICatalogo\\ApiCatalogo.csproj",
       "projectName": "ApiCatalogo",
-      "projectPath": "C:\\Users\\renan\\Projects\\net8-api-macoratti\\section3-4\\APICatalogo\\ApiCatalogo.csproj",
-      "packagesPath": "C:\\Users\\renan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\renan\\Projects\\net8-api-macoratti\\section3-4\\APICatalogo\\obj\\",
+      "projectPath": "C:\\Users\\16864107\\Projects\\net8-api-macoratti\\section3-4\\APICatalogo\\ApiCatalogo.csproj",
+      "packagesPath": "C:\\Users\\16864107\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\16864107\\Projects\\net8-api-macoratti\\section3-4\\APICatalogo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\renan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\16864107\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2608,7 +2605,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\16864107\\Projects\\.dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

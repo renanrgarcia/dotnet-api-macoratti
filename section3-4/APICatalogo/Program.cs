@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using ApiCatalogo.Context;
+using ApiCatalogo.Filters;
 using APICatalogo.Extensions;
 using APICatalogo.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +35,8 @@ builder.Services.AddTransient<IMyService, MyService>();
 // {
 //     options.DisableImplicitFromServicesParameters = true;
 // });
+
+builder.Services.AddScoped<ApiLoggingFilter>();
 
 var app = builder.Build();
 

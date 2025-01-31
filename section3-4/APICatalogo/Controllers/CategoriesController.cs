@@ -3,6 +3,7 @@ using ApiCatalogo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using APICatalogo.Services;
+using ApiCatalogo.Filters;
 
 namespace ApiCatalogo.Controllers
 {
@@ -56,9 +57,18 @@ namespace ApiCatalogo.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public ActionResult<IEnumerable<Category>> Get()
         {
-            return _context.Categories.AsNoTracking().ToList();
+            try
+            {
+                return _context.Categories.AsNoTracking().ToList();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                "Error while getting the categories from the database.");
+            }
         }
 
         [HttpGet("{id:int}", Name = "GetCategory")]
