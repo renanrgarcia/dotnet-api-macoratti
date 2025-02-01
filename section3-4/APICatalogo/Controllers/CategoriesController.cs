@@ -63,15 +63,7 @@ namespace ApiCatalogo.Controllers
         [ServiceFilter(typeof(ApiLoggingFilter))]
         public ActionResult<IEnumerable<Category>> Get()
         {
-            try
-            {
-                return _context.Categories.AsNoTracking().ToList();
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                "Error while getting the categories from the database.");
-            }
+            return _context.Categories.AsNoTracking().ToList();
         }
 
         [HttpGet("{id:int}", Name = "GetCategory")]
