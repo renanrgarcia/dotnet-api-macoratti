@@ -1,9 +1,8 @@
 using ApiCatalogo.Context;
+using ApiCatalogo.Filters;
 using ApiCatalogo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using APICatalogo.Services;
-using ApiCatalogo.Filters;
 
 namespace ApiCatalogo.Controllers
 {
@@ -13,13 +12,15 @@ namespace ApiCatalogo.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
+        private readonly ILogger _logger;
 
         public CategoriesController(AppDbContext context,
-                                    IConfiguration configuration)
+                                    IConfiguration configuration,
+                                    ILogger<CategoriesController> logger)
         {
             _context = context;
             _configuration = configuration;
-
+            _logger = logger;
         }
 
         // [HttpGet("UsingFromServices/{name}")]
@@ -50,6 +51,8 @@ namespace ApiCatalogo.Controllers
             // return _context.Categories
             //     .Include(c => c.Products)
             //     .ToList();
+            _logger.LogInformation("=============== GET api/categories/products ===============");
+
             return _context.Categories
                 .Include(c => c.Products)
                 .Where(c => c.CategoryId <= 5)
@@ -75,15 +78,19 @@ namespace ApiCatalogo.Controllers
         public ActionResult<Category> Get(int id)
         {
             // throw new Exception("Exception while fetching a category by id.");
-            string[] teste = null;
-            if (teste.Length > 0)
-            {
-                // Do something
-            }
+            //string[] teste = null;
+            //if (teste.Length > 0)
+            //{
+            //    // Do something
+            //}
 
             var category = _context.Categories?.FirstOrDefault(p => p.CategoryId == id);
+
+            _logger.LogInformation($"=============== GET api/categories/id = {id} ===============");
+
             if (category is null)
-                return NotFound("Category not found.");
+                _logger.LogInformation($"Category id {id} not found.");
+            return NotFound("Category not found.");
             return category;
         }
 

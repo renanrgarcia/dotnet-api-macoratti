@@ -219,7 +219,6 @@ C:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8
 C:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8.0\ApiCatalogo.pdb
 C:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8.0\ApiCatalogo.genruntimeconfig.cache
 C:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8.0\ref\ApiCatalogo.dll
-c:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8.0\ApiCatal.B2456931.Up2Date
 C:\Users\16864107\Projects\net8-api-macoratti\section3-4\APICatalogo\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\16864107\Projects\net8-api-macoratti\section3-4\APICatalogo\bin\Debug\net8.0\appsettings.json
 C:\Users\16864107\Projects\net8-api-macoratti\section3-4\APICatalogo\bin\Debug\net8.0\APICatalogo.exe
@@ -331,3 +330,8 @@ C:\Users\16864107\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\n
 C:\Users\16864107\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8.0\APICatalogo.pdb
 C:\Users\16864107\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8.0\APICatalogo.genruntimeconfig.cache
 C:\Users\16864107\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8.0\ref\APICatalogo.dll
+C:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo\bin\Debug\net8.0\APICatalogo.staticwebassets.endpoints.json
+C:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8.0\staticwebassets\msbuild.APICatalogo.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo\obj\Debug\net8.0\ApiCatal.B2456931.Up2Date

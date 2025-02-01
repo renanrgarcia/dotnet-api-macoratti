@@ -1,11 +1,10 @@
-using System.Text.Json.Serialization;
 using ApiCatalogo.Context;
 using ApiCatalogo.Filters;
+using ApiCatalogo.Logging;
 using APICatalogo.Extensions;
 using APICatalogo.Services;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MySqlConnector;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +36,11 @@ builder.Services.AddTransient<IMyService, MyService>();
 // });
 
 builder.Services.AddScoped<ApiLoggingFilter>();
+
+builder.Logging.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderConfiguration
+{
+    LogLevel = LogLevel.Information
+}));
 
 var app = builder.Build();
 
