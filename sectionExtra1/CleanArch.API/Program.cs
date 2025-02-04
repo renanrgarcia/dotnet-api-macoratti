@@ -1,3 +1,5 @@
+using System.Reflection;
+using CleanArch.API.Filters;
 using CleanArch.CrossCutting.AppDependencies;
 using Scalar.AspNetCore;
 
@@ -10,6 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services.AddMvc(options =>
+{
+    options.Filters.Add(new CustomExceptionFilter());
+});
 
 var app = builder.Build();
 
