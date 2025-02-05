@@ -1,9 +1,9 @@
 using ApiCatalogo.Context;
+using ApiCatalogo.Extensions;
 using ApiCatalogo.Filters;
 using ApiCatalogo.Logging;
-using APICatalogo.Extensions;
-using APICatalogo.Repositories;
-using APICatalogo.Services;
+using ApiCatalogo.Repositories;
+using ApiCatalogo.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -42,6 +42,7 @@ builder.Services.AddTransient<IMyService, MyService>();
 
 builder.Services.AddScoped<ApiLoggingFilter>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Logging.AddProvider(new CustomLoggerProvider(new CustomLoggerProviderConfiguration
 {

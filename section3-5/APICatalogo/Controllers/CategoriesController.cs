@@ -1,9 +1,6 @@
-using ApiCatalogo.Context;
-using ApiCatalogo.Filters;
 using ApiCatalogo.Models;
-using APICatalogo.Repositories;
+using ApiCatalogo.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace ApiCatalogo.Controllers
 {
@@ -39,7 +36,7 @@ namespace ApiCatalogo.Controllers
             if (category is null)
             {
                 _logger.LogInformation($"Category id {id} not found.");
-                return NotFound("Category not found.");
+                return NotFound($"Category id {id} not found.");
             }
 
             return Ok(category);
@@ -51,7 +48,7 @@ namespace ApiCatalogo.Controllers
             if (category is null)
             {
                 _logger.LogInformation("Category object sent from client is null.");
-                return BadRequest("Category is null.");
+                return BadRequest("Category object sent from client is null.");
             }
 
             var createdCategory = _repository.CreateCategory(category);
@@ -68,7 +65,7 @@ namespace ApiCatalogo.Controllers
             if (id != category.CategoryId)
             {
                 _logger.LogInformation($"Category id {id} doesn't match with category id {category.CategoryId}.");
-                return BadRequest("Category id doesn't match with category id.");
+                return BadRequest($"Category id {id} doesn't match with category id {category.CategoryId}.");
             }
 
             _repository.UpdateCategory(category);
@@ -83,7 +80,7 @@ namespace ApiCatalogo.Controllers
             if (category is null)
             {
                 _logger.LogWarning($"Category id {id} not found.");
-                return NotFound("Category not found.");
+                return NotFound($"Category id {id} not found.");
             }
 
             var deletedCategory = _repository.DeleteCategory(id);

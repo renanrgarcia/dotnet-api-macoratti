@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ApiCatalogo.Models;
 
-namespace APICatalogo.Repositories
+namespace ApiCatalogo.Repositories
 {
     public interface ICategoryRepository
     {

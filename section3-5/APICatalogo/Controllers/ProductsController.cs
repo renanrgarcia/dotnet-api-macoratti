@@ -1,8 +1,6 @@
-using ApiCatalogo.Context;
 using ApiCatalogo.Models;
+using ApiCatalogo.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.EntityFrameworkCore;
 
 namespace ApiCatalogo.Controllers
 {
@@ -10,46 +8,41 @@ namespace ApiCatalogo.Controllers
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IProductRepository _repository;
 
-        public ProductsController(AppDbContext context)
+        public ProductsController(IProductRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> Get()
+        public ActionResult<IEnumerable<Product>> Get()
         {
-            var products = await _context.Products?.ToListAsync();
+            var products = _repository.GetProducts().ToList();
             if (products is null)
                 return NotFound("Products not found");
 
-            return products;
+            return Ok(products);
         }
 
         [HttpGet("{id:int:min(1)}", Name = "GetProduct")] // url/api/products/1
-        public async Task<ActionResult<Product>> Get(int id, [BindRequired] string name)
+        public ActionResult<Product> Get(int id)
         {
-            var nameProduct = name;
-
-            var product = await _context.Products?.FirstOrDefaultAsync(p => p.ProductId == id);
+            var product = _repository.GetProduct(id);
             if (product is null)
                 return NotFound("Product not found");
 
-            return product;
+            return Ok(product);
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] Product product)
+        public ActionResult Post(Product product)
         {
-            // // Don't need, because of [ApiController] attribute
-            // if (!ModelState.IsValid)
-            //     return BadRequest(ModelState);
+            if (product is null)
+                return BadRequest("Product is null");
 
-            _context.Products?.Add(product);
-            _context.SaveChanges();
-            return new CreatedAtRouteResult("GetProduct",
-                new { id = product.ProductId }, product);
+            var newProduct = _repository.Create(product);
+            return CreatedAtRoute("GetProduct", new { id = newProduct.ProductId }, newProduct);
         }
 
         [HttpPut("{id:int}")]
@@ -58,24 +51,26 @@ namespace ApiCatalogo.Controllers
             if (id != product.ProductId)
                 return BadRequest();
 
-            _context.Entry(product).State = EntityState.Modified;
-            _context.SaveChanges();
+            bool result = _repository.Update(product);
 
-            return Ok(product); // Or NoContent()
+            if (result)
+                return Ok(product);
+            else
+                return StatusCode(500, "Error while updating product");
         }
 
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id)
         {
-            //var product = _context.Products?.FirstOrDefault(p => p.ProductId == id);
-            var product = _context.Products?.Find(id); // Leverage given that try to find on memory
-            if (product is null)
-                return NotFound("Product not found");
+            if (_repository.GetProduct(id) is null)
+                return NotFound();
 
-            _context.Products?.Remove(product);
-            _context.SaveChanges();
+            bool result = _repository.Delete(id);
 
-            return Ok(product);
+            if (result)
+                return Ok($"Product with id = {id} deleted");
+            else
+                return StatusCode(500, $"Error while deleting product with id = {id}");
         }
     }
 }

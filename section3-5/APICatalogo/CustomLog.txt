@@ -1,11 +1,11 @@
 Information - 14 - Now listening on: http://localhost:5095
 Information - 0 - Application started. Press Ctrl+C to shut down.
 Information - 0 - Hosting environment: Development
-Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-4\ApiCatalogo
 Information - 14 - Now listening on: http://localhost:5095
 Information - 0 - Application started. Press Ctrl+C to shut down.
 Information - 0 - Hosting environment: Development
-Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-4\APICatalogo
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-4\ApiCatalogo
 Warning - 3 - Failed to determine the https port for redirect.
 Information - 0 - ### Executando -> OnActionExecuting
 Information - 0 - ############################################
@@ -26,3 +26,247 @@ FROM `Categories` AS `c`
 WHERE `c`.`CategoryId` = @__id_0
 LIMIT 1
 Information - 0 - =============== GET api/categories/id = 1 ===============
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-5\ApiCatalogo
+Warning - 3 - Failed to determine the https port for redirect.
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 6:18:59 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (52ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 6:19:00 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-5\ApiCatalogo
+Warning - 3 - Failed to determine the https port for redirect.
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 6:19:26 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-5\ApiCatalogo
+Warning - 3 - Failed to determine the https port for redirect.
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 7:11:11 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (44ms) [Parameters=[@p0='?' (Size = 300), @p1='?' (Size = 80)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `Categories` (`ImageUrl`, `Name`)
+VALUES (@p0, @p1);
+SELECT `CategoryId`
+FROM `Categories`
+WHERE ROW_COUNT() = 1 AND `CategoryId` = LAST_INSERT_ID();
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 7:11:12 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 7:11:21 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 300), @p1='?' (Size = 80)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `Categories` (`ImageUrl`, `Name`)
+VALUES (@p0, @p1);
+SELECT `CategoryId`
+FROM `Categories`
+WHERE ROW_COUNT() = 1 AND `CategoryId` = LAST_INSERT_ID();
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 7:11:21 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 7:11:31 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (15ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+WHERE `c`.`CategoryId` = @__categoryId_0
+LIMIT 1
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 7:11:31 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 7:11:37 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (2ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+WHERE `c`.`CategoryId` = @__categoryId_0
+LIMIT 1
+Information - 0 - Category id 50 not found.
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 7:11:37 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-5\APICatalogo
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-5\APICatalogo
+Warning - 3 - Failed to determine the https port for redirect.
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:07:56 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (45ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 300), @p2='?' (Size = 300), @p3='?' (Size = 20), @p4='?' (DbType = Decimal), @p5='?' (DbType = DateTime), @p6='?' (DbType = Single)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `Products` (`CategoryId`, `Description`, `ImageUrl`, `Name`, `Price`, `RegisterDate`, `Stock`)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+SELECT `ProductId`
+FROM `Products`
+WHERE ROW_COUNT() = 1 AND `ProductId` = LAST_INSERT_ID();
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:09:53 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:10:34 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+WHERE `p`.`ProductId` = @__id_0
+LIMIT 1
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:10:59 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:11:05 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+WHERE `p`.`ProductId` = @__id_0
+LIMIT 1
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:11:05 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:12:14 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:12:18 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:13:11 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+WHERE `p`.`ProductId` = @__id_0
+LIMIT 1
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:13:11 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:14:01 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (9ms) [Parameters=[@__product_ProductId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Products` AS `p`
+    WHERE `p`.`ProductId` = @__product_ProductId_0)
+Information - 20101 - Executed DbCommand (15ms) [Parameters=[@p7='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Size = 300), @p2='?' (Size = 300), @p3='?' (Size = 20), @p4='?' (DbType = Decimal), @p5='?' (DbType = DateTime), @p6='?' (DbType = Single)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `Products` SET `CategoryId` = @p0, `Description` = @p1, `ImageUrl` = @p2, `Name` = @p3, `Price` = @p4, `RegisterDate` = @p5, `Stock` = @p6
+WHERE `ProductId` = @p7;
+SELECT ROW_COUNT();
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:14:01 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:14:05 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+WHERE `p`.`ProductId` = @__id_0
+LIMIT 1
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:14:05 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:14:21 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:14:23 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:14:37 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+WHERE `p`.`ProductId` = @__id_0
+LIMIT 1
+Information - 20101 - Executed DbCommand (16ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+DELETE FROM `Products`
+WHERE `ProductId` = @p0;
+SELECT ROW_COUNT();
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:14:41 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################

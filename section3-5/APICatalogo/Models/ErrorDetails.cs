@@ -1,7 +1,7 @@
 using System.Text.Json;
 
 
-namespace APICatalogo.Models
+namespace ApiCatalogo.Models
 {
     public class ErrorDetails
     {
