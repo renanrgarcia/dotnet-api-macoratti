@@ -1,4 +1,5 @@
 using System;
+using CleanArch.Application.Members.Commands.Notifications;
 using CleanArch.Domain.Abstractions;
 using CleanArch.Domain.Entities;
 using FluentValidation;
@@ -10,11 +11,13 @@ public class CreateMemberCommandHandler : IRequestHandler<CreateMemberCommand, M
 {
     private readonly IUnitOfWork _unitOfWork;
     // private readonly IValidator<CreateMemberCommand> _validator;
+    private readonly IMediator _mediator;
 
-    public CreateMemberCommandHandler(IUnitOfWork unitOfWork) // IValidator<CreateMemberCommand> validator
+    public CreateMemberCommandHandler(IUnitOfWork unitOfWork, IMediator mediator) // IValidator<CreateMemberCommand> validator
 
     {
         _unitOfWork = unitOfWork;
+        _mediator = mediator;
         // _validator = validator;
     }
 
@@ -26,6 +29,8 @@ public class CreateMemberCommandHandler : IRequestHandler<CreateMemberCommand, M
 
         await _unitOfWork.MemberRepository.AddMember(newMember);
         await _unitOfWork.CommitAsync();
+
+        await _mediator.Publish(new MemberCreatedNotification(newMember), cancellationToken);
 
         return newMember;
     }
