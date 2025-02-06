@@ -2,12 +2,7 @@ using ApiCatalogo.Models;
 
 namespace ApiCatalogo.Repositories
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IRepository<Category>
     {
-        IEnumerable<Category> GetCategories();
-        Category GetCategory(int categoryId);
-        Category CreateCategory(Category category);
-        Category UpdateCategory(Category category);
-        Category DeleteCategory(int categoryId);
     }
 }

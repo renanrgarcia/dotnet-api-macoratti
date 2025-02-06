@@ -8,11 +8,11 @@ namespace ApiCatalogo.Controllers
     [Route("[controller]")]
     public class CategoriesController : ControllerBase
     {
-        private readonly ICategoryRepository _repository;
+        private readonly IRepository<Category> _repository;
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
 
-        public CategoriesController(ICategoryRepository repository,
+        public CategoriesController(IRepository<Category> repository,
                                     IConfiguration configuration,
                                     ILogger<CategoriesController> logger)
         {
@@ -24,14 +24,14 @@ namespace ApiCatalogo.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Category>> Get()
         {
-            var categories = _repository.GetCategories();
+            var categories = _repository.GetAll();
             return Ok(categories);
         }
 
         [HttpGet("{id:int}", Name = "GetCategory")]
         public ActionResult<Category> Get(int id)
         {
-            var category = _repository.GetCategory(id);
+            var category = _repository.Get(c => c.CategoryId == id);
 
             if (category is null)
             {
@@ -51,7 +51,7 @@ namespace ApiCatalogo.Controllers
                 return BadRequest("Category object sent from client is null.");
             }
 
-            var createdCategory = _repository.CreateCategory(category);
+            var createdCategory = _repository.Create(category);
 
             return new CreatedAtRouteResult("GetCategory", new
             {
@@ -68,14 +68,14 @@ namespace ApiCatalogo.Controllers
                 return BadRequest($"Category id {id} doesn't match with category id {category.CategoryId}.");
             }
 
-            _repository.UpdateCategory(category);
+            _repository.Update(category);
             return Ok(category);
         }
 
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id)
         {
-            var category = _repository.GetCategory(id);
+            var category = _repository.Get(c => c.CategoryId == id);
 
             if (category is null)
             {
@@ -83,7 +83,7 @@ namespace ApiCatalogo.Controllers
                 return NotFound($"Category id {id} not found.");
             }
 
-            var deletedCategory = _repository.DeleteCategory(id);
+            var deletedCategory = _repository.Delete(category);
             return Ok(deletedCategory);
         }
 
