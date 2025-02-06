@@ -1,5 +1,5 @@
 using ApiCatalogo.Models;
-using ApiCatalogo.Repositories;
+using ApiCatalogo.Repositories.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiCatalogo.Controllers
@@ -8,19 +8,17 @@ namespace ApiCatalogo.Controllers
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductRepository _productRepository;
-        private readonly IRepository<Product> _repository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ProductsController(IRepository<Product> repository, IProductRepository productRepository)
+        public ProductsController(IUnitOfWork unitOfWork)
         {
-            _repository = repository;
-            _productRepository = productRepository;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet("products/{id:int}")]
         public ActionResult<IEnumerable<Product>> GetProductsByCategory(int id)
         {
-            var products = _productRepository.GetProductsByCategory(id);
+            var products = _unitOfWork.ProductRepository.GetProductsByCategory(id);
             if (products is null)
                 return NotFound("Products not found");
             return Ok(products);
@@ -29,7 +27,7 @@ namespace ApiCatalogo.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Product>> Get()
         {
-            var products = _repository.GetAll();
+            var products = _unitOfWork.ProductRepository.GetAll();
             if (products is null)
                 return NotFound("Products not found");
 
@@ -39,7 +37,7 @@ namespace ApiCatalogo.Controllers
         [HttpGet("{id:int:min(1)}", Name = "GetProduct")] // url/api/products/1
         public ActionResult<Product> Get(int id)
         {
-            var product = _repository.Get(p => p.ProductId == id);
+            var product = _unitOfWork.ProductRepository.Get(p => p.ProductId == id);
             if (product is null)
                 return NotFound("Product not found");
 
@@ -52,7 +50,9 @@ namespace ApiCatalogo.Controllers
             if (product is null)
                 return BadRequest("Product is null");
 
-            var newProduct = _repository.Create(product);
+            var newProduct = _unitOfWork.ProductRepository.Create(product);
+            _unitOfWork.Commit();
+
             return CreatedAtRoute("GetProduct", new { id = newProduct.ProductId }, newProduct);
         }
 
@@ -62,7 +62,8 @@ namespace ApiCatalogo.Controllers
             if (id != product.ProductId)
                 return BadRequest();
 
-            var result = _repository.Update(product);
+            var result = _unitOfWork.ProductRepository.Update(product);
+            _unitOfWork.Commit();
 
             return Ok(product);
         }
@@ -70,12 +71,13 @@ namespace ApiCatalogo.Controllers
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id)
         {
-            var product = _repository.Get(p => p.ProductId == id);
+            var product = _unitOfWork.ProductRepository.Get(p => p.ProductId == id);
 
             if (product is null)
                 return NotFound();
 
-            var deletedProduct = _repository.Delete(product);
+            var deletedProduct = _unitOfWork.ProductRepository.Delete(product);
+            _unitOfWork.Commit();
 
             return Ok(deletedProduct);
         }

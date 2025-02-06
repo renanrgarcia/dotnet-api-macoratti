@@ -1,5 +1,5 @@
 using ApiCatalogo.Models;
-using ApiCatalogo.Repositories;
+using ApiCatalogo.Repositories.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiCatalogo.Controllers
@@ -8,30 +8,30 @@ namespace ApiCatalogo.Controllers
     [Route("[controller]")]
     public class CategoriesController : ControllerBase
     {
-        private readonly IRepository<Category> _repository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IConfiguration _configuration;
         private readonly ILogger _logger;
 
-        public CategoriesController(IRepository<Category> repository,
-                                    IConfiguration configuration,
-                                    ILogger<CategoriesController> logger)
+        public CategoriesController(IConfiguration configuration,
+                                    ILogger<CategoriesController> logger,
+                                    IUnitOfWork unitOfWork)
         {
-            _repository = repository;
             _configuration = configuration;
             _logger = logger;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<Category>> Get()
         {
-            var categories = _repository.GetAll();
+            var categories = _unitOfWork.CategoryRepository.GetAll();
             return Ok(categories);
         }
 
         [HttpGet("{id:int}", Name = "GetCategory")]
         public ActionResult<Category> Get(int id)
         {
-            var category = _repository.Get(c => c.CategoryId == id);
+            var category = _unitOfWork.CategoryRepository.Get(c => c.CategoryId == id);
 
             if (category is null)
             {
@@ -51,7 +51,8 @@ namespace ApiCatalogo.Controllers
                 return BadRequest("Category object sent from client is null.");
             }
 
-            var createdCategory = _repository.Create(category);
+            var createdCategory = _unitOfWork.CategoryRepository.Create(category);
+            _unitOfWork.Commit();
 
             return new CreatedAtRouteResult("GetCategory", new
             {
@@ -68,14 +69,16 @@ namespace ApiCatalogo.Controllers
                 return BadRequest($"Category id {id} doesn't match with category id {category.CategoryId}.");
             }
 
-            _repository.Update(category);
+            _unitOfWork.CategoryRepository.Update(category);
+            _unitOfWork.Commit();
+
             return Ok(category);
         }
 
         [HttpDelete("{id:int}")]
         public ActionResult Delete(int id)
         {
-            var category = _repository.Get(c => c.CategoryId == id);
+            var category = _unitOfWork.CategoryRepository.Get(c => c.CategoryId == id);
 
             if (category is null)
             {
@@ -83,7 +86,9 @@ namespace ApiCatalogo.Controllers
                 return NotFound($"Category id {id} not found.");
             }
 
-            var deletedCategory = _repository.Delete(category);
+            var deletedCategory = _unitOfWork.CategoryRepository.Delete(category);
+            _unitOfWork.Commit();
+
             return Ok(deletedCategory);
         }
 

@@ -2,7 +2,7 @@
 
 namespace ApiCatalogo.Repositories
 {
-    public interface IProductRepository
+    public interface IProductRepository : IRepository<Product>
     {
         IEnumerable<Product> GetProductsByCategory(int id);
     }
