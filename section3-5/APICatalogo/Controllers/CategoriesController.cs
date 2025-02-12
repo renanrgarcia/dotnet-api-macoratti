@@ -1,4 +1,5 @@
-using ApiCatalogo.Models;
+using ApiCatalogo.DTOs;
+using ApiCatalogo.Extensions;
 using ApiCatalogo.Repositories.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,14 +23,20 @@ namespace ApiCatalogo.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Category>> Get()
+        public ActionResult<IEnumerable<CategoryDTO>> Get()
         {
             var categories = _unitOfWork.CategoryRepository.GetAll();
-            return Ok(categories);
+
+            if (categories == null)
+                return NotFound("There are no categories.");
+
+            var categoriesDTO = categories.ToCategoryDTOList();
+
+            return Ok(categoriesDTO);
         }
 
         [HttpGet("{id:int}", Name = "GetCategory")]
-        public ActionResult<Category> Get(int id)
+        public ActionResult<CategoryDTO> Get(int id)
         {
             var category = _unitOfWork.CategoryRepository.Get(c => c.CategoryId == id);
 
@@ -39,44 +46,54 @@ namespace ApiCatalogo.Controllers
                 return NotFound($"Category id {id} not found.");
             }
 
-            return Ok(category);
+            var categoryDTO = category.ToCategoryDTO();
+
+            return Ok(categoryDTO);
         }
 
         [HttpPost]
-        public ActionResult Post(Category category)
+        public ActionResult<CategoryDTO> Post(CategoryDTO categoryDTO)
         {
-            if (category is null)
+            if (categoryDTO is null)
             {
                 _logger.LogInformation("Category object sent from client is null.");
                 return BadRequest("Category object sent from client is null.");
             }
 
+            var category = categoryDTO.ToCategory();
+
             var createdCategory = _unitOfWork.CategoryRepository.Create(category);
             _unitOfWork.Commit();
 
+            var newCategoryDTO = createdCategory.ToCategoryDTO();
+
             return new CreatedAtRouteResult("GetCategory", new
             {
-                id = createdCategory.CategoryId
-            }, createdCategory);
+                id = newCategoryDTO.CategoryId
+            }, newCategoryDTO);
         }
 
         [HttpPut("{id:int}")]
-        public ActionResult Put(int id, Category category)
+        public ActionResult<CategoryDTO> Put(int id, CategoryDTO categoryDTO)
         {
-            if (id != category.CategoryId)
+            if (id != categoryDTO.CategoryId)
             {
-                _logger.LogInformation($"Category id {id} doesn't match with category id {category.CategoryId}.");
-                return BadRequest($"Category id {id} doesn't match with category id {category.CategoryId}.");
+                _logger.LogInformation($"Category id {id} doesn't match with category id {categoryDTO.CategoryId}.");
+                return BadRequest($"Category id {id} doesn't match with category id {categoryDTO.CategoryId}.");
             }
+
+            var category = categoryDTO.ToCategory();
 
             _unitOfWork.CategoryRepository.Update(category);
             _unitOfWork.Commit();
 
-            return Ok(category);
+            var updatedCategoryDTO = category.ToCategoryDTO();
+
+            return Ok(updatedCategoryDTO);
         }
 
         [HttpDelete("{id:int}")]
-        public ActionResult Delete(int id)
+        public ActionResult<CategoryDTO> Delete(int id)
         {
             var category = _unitOfWork.CategoryRepository.Get(c => c.CategoryId == id);
 
@@ -89,7 +106,9 @@ namespace ApiCatalogo.Controllers
             var deletedCategory = _unitOfWork.CategoryRepository.Delete(category);
             _unitOfWork.Commit();
 
-            return Ok(deletedCategory);
+            var deletedCategoryDTO = deletedCategory.ToCategoryDTO();
+
+            return Ok(deletedCategoryDTO);
         }
 
         // [HttpGet("UsingFromServices/{name}")]
