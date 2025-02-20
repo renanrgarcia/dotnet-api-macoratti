@@ -30,7 +30,7 @@
 
         private void WriteTextToFile(string message)
         {
-            string filePath = @"C:\Users\renan\Projects\net8-api-macoratti\section3-5\ApiCatalogo\CustomLog.txt";
+            string filePath = @"C:\Users\renan\Projects\net8-api-macoratti\CustomLog.txt";
 
             using (StreamWriter streamWriter = new StreamWriter(filePath, true))
             {

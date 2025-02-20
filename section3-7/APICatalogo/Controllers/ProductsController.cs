@@ -1,5 +1,6 @@
 using ApiCatalogo.DTOs;
 using ApiCatalogo.Models;
+using ApiCatalogo.Pagination;
 using ApiCatalogo.Repositories.UnitOfWork;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
@@ -30,6 +31,16 @@ namespace ApiCatalogo.Controllers
 
             var productsDTO = _mapper.Map<IEnumerable<ProductDTO>>(products);
 
+            return Ok(productsDTO);
+        }
+
+        [HttpGet("pagination")]
+        public ActionResult<IEnumerable<ProductDTO>> Get([FromQuery] ProductsParameters productsParameters)
+        {
+            var products = _unitOfWork.ProductRepository.GetProducts(productsParameters);
+            if (products is null)
+                return NotFound("Products not found");
+            var productsDTO = _mapper.Map<IEnumerable<ProductDTO>>(products);
             return Ok(productsDTO);
         }
 
@@ -71,6 +82,20 @@ namespace ApiCatalogo.Controllers
             var newProductDTO = _mapper.Map<ProductDTO>(newProduct);
 
             return CreatedAtRoute("GetProduct", new { id = newProductDTO.ProductId }, newProductDTO);
+        }
+
+        [HttpPost("list")]
+        public ActionResult Post(List<ProductDTO> productsDTO)
+        {
+            if (productsDTO is null)
+                return BadRequest("Products is null");
+            var products = _mapper.Map<List<Product>>(productsDTO);
+            foreach (var product in products)
+            {
+                _unitOfWork.ProductRepository.Create(product);
+            }
+            _unitOfWork.Commit();
+            return Ok();
         }
 
         [HttpPatch("{id}/PartialUpdate")]
