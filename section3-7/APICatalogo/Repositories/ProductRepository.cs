@@ -10,13 +10,37 @@ namespace ApiCatalogo.Repositories
         {
         }
 
-        public IEnumerable<Product> GetProducts(ProductsParameters productsParameters)
+        public PagedList<Product> GetProducts(ProductsParameters productsParameters)
         {
-            return GetAll()
+            var products = GetAll()
                 .OrderBy(on => on.Name)
-                .Skip((productsParameters.PageNumber - 1) * productsParameters.PageSize)
-                .Take(productsParameters.PageSize)
-                .ToList();
+                .AsQueryable();
+
+            return PagedList<Product>.ToPagedList(products, productsParameters.PageNumber, productsParameters.PageSize);
+
+        }
+
+        public PagedList<Product> GetProductsFilterPrice(ProductsFilterPrice productsFilterPrice)
+        {
+            var products = GetAll().AsQueryable();
+
+            if (productsFilterPrice.Price.HasValue && !string.IsNullOrEmpty(productsFilterPrice.PriceCriteria))
+            {
+                if (productsFilterPrice.PriceCriteria.Equals("greaterThan", StringComparison.OrdinalIgnoreCase))
+                {
+                    products = products.Where(p => p.Price > productsFilterPrice.Price.Value).OrderBy(p => p.Price);
+                }
+                else if (productsFilterPrice.PriceCriteria.Equals("lessThan", StringComparison.OrdinalIgnoreCase))
+                {
+                    products = products.Where(p => p.Price < productsFilterPrice.Price.Value).OrderBy(p => p.Price);
+                }
+                else if (productsFilterPrice.PriceCriteria.Equals("equalTo", StringComparison.OrdinalIgnoreCase))
+                {
+                    products = products.Where(p => p.Price == productsFilterPrice.Price.Value).OrderBy(p => p.Price);
+                }
+            }
+
+            return PagedList<Product>.ToPagedList(products, productsFilterPrice.PageNumber, productsFilterPrice.PageSize);
         }
 
         public IEnumerable<Product> GetProductsByCategory(int id)

@@ -1,7 +1,10 @@
 using ApiCatalogo.DTOs;
 using ApiCatalogo.Extensions;
+using ApiCatalogo.Models;
+using ApiCatalogo.Pagination;
 using ApiCatalogo.Repositories.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace ApiCatalogo.Controllers
 {
@@ -49,6 +52,42 @@ namespace ApiCatalogo.Controllers
             var categoryDTO = category.ToCategoryDTO();
 
             return Ok(categoryDTO);
+        }
+
+        [HttpGet("pagination")]
+        public ActionResult<IEnumerable<CategoryDTO>> Get([FromQuery] CategoriesParameters categoriesParameters)
+        {
+            var categories = _unitOfWork.CategoryRepository.GetCategories(categoriesParameters);
+
+            if (categories == null)
+                return NotFound("There are no categories.");
+
+            return GetCategories(categories);
+        }
+
+        [HttpGet("filter/name/pagination")]
+        public ActionResult<IEnumerable<CategoryDTO>> Get([FromQuery] CategoriesFilterName categoriesFilterName)
+        {
+            var categories = _unitOfWork.CategoryRepository.GetCategoriesFilterName(categoriesFilterName);
+
+            return GetCategories(categories);
+        }
+
+        private ActionResult<IEnumerable<CategoryDTO>> GetCategories(PagedList<Category> categories)
+        {
+            var metadata = new
+            {
+                categories.TotalCount,
+                categories.PageSize,
+                categories.CurrentPage,
+                categories.TotalPages,
+                categories.HasNext,
+                categories.HasPrevious
+            };
+
+            Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(metadata));
+
+            return Ok(categories.ToCategoryDTOList());
         }
 
         [HttpPost]

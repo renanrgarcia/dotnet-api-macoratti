@@ -214,3 +214,252 @@ Information - 0 - ############################################
 Information - 0 - 7:14:58 AM
 Information - 0 - ModelState: True
 Information - 0 - ############################################
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-7\APICatalogo
+Warning - 3 - Failed to determine the https port for redirect.
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:03:04 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:03:05 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:03:12 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:03:12 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:03:23 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:03:23 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:03:31 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:03:31 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:03:41 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:03:41 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:03:50 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:03:50 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-7\APICatalogo
+Warning - 3 - Failed to determine the https port for redirect.
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:34:40 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:34:41 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:34:58 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:34:58 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:35:03 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:35:03 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-7\APICatalogo
+Warning - 3 - Failed to determine the https port for redirect.
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:38:40 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:38:42 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:38:50 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-7\APICatalogo
+Warning - 3 - Failed to determine the https port for redirect.
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:40:30 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:40:31 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:40:37 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-7\APICatalogo
+Warning - 3 - Failed to determine the https port for redirect.
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:42:02 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-7\APICatalogo
+Warning - 3 - Failed to determine the https port for redirect.
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:43:48 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `c`.`CategoryId`, `c`.`ImageUrl`, `c`.`Name`
+FROM `Categories` AS `c`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:43:49 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:44:22 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:44:22 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:44:41 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:44:41 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 8:46:40 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT `p`.`ProductId`, `p`.`CategoryId`, `p`.`Description`, `p`.`ImageUrl`, `p`.`Name`, `p`.`Price`, `p`.`RegisterDate`, `p`.`Stock`
+FROM `Products` AS `p`
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 8:46:40 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################

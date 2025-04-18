@@ -5,6 +5,7 @@ using ApiCatalogo.Repositories.UnitOfWork;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace ApiCatalogo.Controllers
 {
@@ -38,10 +39,36 @@ namespace ApiCatalogo.Controllers
         public ActionResult<IEnumerable<ProductDTO>> Get([FromQuery] ProductsParameters productsParameters)
         {
             var products = _unitOfWork.ProductRepository.GetProducts(productsParameters);
+
             if (products is null)
                 return NotFound("Products not found");
-            var productsDTO = _mapper.Map<IEnumerable<ProductDTO>>(products);
-            return Ok(productsDTO);
+
+            return GetProducts(products);
+        }
+
+        [HttpGet("filter/price/pagination")]
+        public ActionResult<IEnumerable<ProductDTO>> Get([FromQuery] ProductsFilterPrice productsFilterPrice)
+        {
+            var products = _unitOfWork.ProductRepository.GetProductsFilterPrice(productsFilterPrice);
+
+            return GetProducts(products);
+        }
+
+        private ActionResult<IEnumerable<ProductDTO>> GetProducts(PagedList<Product> products)
+        {
+            var metadata = new
+            {
+                products.TotalCount,
+                products.PageSize,
+                products.CurrentPage,
+                products.TotalPages,
+                products.HasNext,
+                products.HasPrevious
+            };
+
+            Response.Headers.Append("X-Pagination", JsonSerializer.Serialize(metadata));
+
+            return Ok(_mapper.Map<IEnumerable<ProductDTO>>(products));
         }
 
         [HttpGet]
