@@ -1,34 +1,16 @@
-# Generate JWT Token
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 
-- We need to create `ITokenService` interface and `TokenService` class to generate JWT tokens.
-
-```json
-// appsettings.json
-{
-  "JWT": {
-    "ValidAudience": "https://localhost:7066",
-    "ValidIssuer": "https://localhost:5066",
-    "SecretKey": "My@secret&key_12345-private%key",
-    "TokenValidityInMinutes": 30,
-    "RefreshTokenValidityInMinutes": 60
-  }
-}
-```
-
-```csharp
-// On Services folder
-public interface ITokenService
-{
-    JwtSecurityToken GenerateAccessToken(IEnumerable<Claim> claims, IConfiguration _configuration);
-    string GenerateRefreshToken();
-    ClaimsPrincipal GetPrincipalFromExpiredToken(string token, IConfiguration _configuration);
-}
+namespace ApiCatalogo.Services;
 
 public class TokenService : ITokenService
 {
     public JwtSecurityToken GenerateAccessToken(IEnumerable<Claim> claims, IConfiguration _configuration)
     {
-        var key = _config.GetSection("JWT").GetValue<string>("SecretKey") ??
+        var key = _configuration.GetSection("JWT").GetValue<string>("SecretKey") ??
             throw new InvalidOperationException("Invalid secret key");
 
         var privateKey = Encoding.UTF8.GetBytes(key);
@@ -41,9 +23,9 @@ public class TokenService : ITokenService
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddMinutes(_config.GetSection("JWT").GetValue<double>("TokenValidityInMinutes")),
-            Audience = _config.GetSection("JWT").GetValue<string>("ValidAudience"),
-            Issuer = _config.GetSection("JWT").GetValue<string>("ValidIssuer"),
+            Expires = DateTime.UtcNow.AddMinutes(_configuration.GetSection("JWT").GetValue<double>("TokenValidityInMinutes")),
+            Audience = _configuration.GetSection("JWT").GetValue<string>("ValidAudience"),
+            Issuer = _configuration.GetSection("JWT").GetValue<string>("ValidIssuer"),
             SigningCredentials = signingCredentials
         };
         var tokenHandler = new JwtSecurityTokenHandler();
@@ -66,7 +48,7 @@ public class TokenService : ITokenService
 
     public ClaimsPrincipal GetPrincipalFromExpiredToken(string token, IConfiguration _configuration)
     {
-        var secretKey = _config.GetSection("JWT").GetValue<string>("SecretKey") ??
+        var secretKey = _configuration.GetSection("JWT").GetValue<string>("SecretKey") ??
             throw new InvalidOperationException("Invalid key");
 
         var tokenValidationParameters = new TokenValidationParameters
@@ -87,4 +69,3 @@ public class TokenService : ITokenService
         return principal;
     }
 }
-```

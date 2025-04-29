@@ -69,8 +69,7 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
     };
 });
-
-builder.Services.AddTransient<IMyService, MyService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 // // Forces to use like before .net 7, forcing to use [FromServices] attribute
 // builder.Services.Configure<ApiBehaviorOptions>(options =>
