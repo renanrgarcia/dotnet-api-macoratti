@@ -3,6 +3,7 @@ using ApiCatalogo.Models;
 using ApiCatalogo.Pagination;
 using ApiCatalogo.Repositories.UnitOfWork;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -72,6 +73,7 @@ namespace ApiCatalogo.Controllers
             return Ok(_mapper.Map<IEnumerable<ProductDTO>>(products));
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductDTO>>> Get()
         {
