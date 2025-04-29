@@ -1414,3 +1414,120 @@ Information - 0 - ############################################
 Information - 0 - 10:53:22 AM
 Information - 0 - ModelState: True
 Information - 0 - ############################################
+Information - 14 - Now listening on: https://localhost:7210
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-7\APICatalogo
+Information - 14 - Now listening on: https://localhost:7210
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-7\APICatalogo
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 11:27:41 AM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (104ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ConcurrencyStamp`, `a`.`Name`, `a`.`NormalizedName`
+FROM `AspNetRoles` AS `a`
+WHERE `a`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+Information - 20101 - Executed DbCommand (22ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ConcurrencyStamp`, `a`.`Name`, `a`.`NormalizedName`
+FROM `AspNetRoles` AS `a`
+WHERE `a`.`NormalizedName` = @__normalizedName_0
+LIMIT 1
+Information - 20101 - Executed DbCommand (15ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+INSERT INTO `AspNetRoles` (`Id`, `ConcurrencyStamp`, `Name`, `NormalizedName`)
+VALUES (@p0, @p1, @p2, @p3);
+Information - 1 - Roles added
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 11:27:44 AM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 14 - Now listening on: https://localhost:7210
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-7\APICatalogo
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 2:30:13 PM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (42ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`Id` = @__p_0
+LIMIT 1
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 2:30:15 PM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 2:30:24 PM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (32ms) [Parameters=[@__p_0='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`Id` = @__p_0
+LIMIT 1
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 2:30:24 PM
+Information - 0 - ModelState: True
+Information - 0 - ############################################
+Information - 14 - Now listening on: https://localhost:7210
+Information - 14 - Now listening on: http://localhost:5095
+Information - 0 - Application started. Press Ctrl+C to shut down.
+Information - 0 - Hosting environment: Development
+Information - 0 - Content root path: C:\Users\renan\Projects\net8-api-macoratti\section3-7\APICatalogo
+Information - 0 - ### Executando -> OnActionExecuting
+Information - 0 - ############################################
+Information - 0 - 2:32:06 PM
+Information - 0 - StatusCode: 200
+Information - 0 - ############################################
+Information - 20101 - Executed DbCommand (41ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedEmail` = @__normalizedEmail_0
+LIMIT 2
+Information - 20101 - Executed DbCommand (9ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ConcurrencyStamp`, `a`.`Name`, `a`.`NormalizedName`
+FROM `AspNetRoles` AS `a`
+WHERE `a`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+Information - 20101 - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 255), @__p_1='?' (Size = 255)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`UserId`, `a`.`RoleId`
+FROM `AspNetUserRoles` AS `a`
+WHERE (`a`.`UserId` = @__p_0) AND (`a`.`RoleId` = @__p_1)
+LIMIT 1
+Information - 20101 - Executed DbCommand (4ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`ConcurrencyStamp`, `a`.`Name`, `a`.`NormalizedName`
+FROM `AspNetRoles` AS `a`
+WHERE `a`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+Information - 20101 - Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT `a`.`Id`, `a`.`AccessFailedCount`, `a`.`ConcurrencyStamp`, `a`.`Email`, `a`.`EmailConfirmed`, `a`.`LockoutEnabled`, `a`.`LockoutEnd`, `a`.`NormalizedEmail`, `a`.`NormalizedUserName`, `a`.`PasswordHash`, `a`.`PhoneNumber`, `a`.`PhoneNumberConfirmed`, `a`.`RefreshToken`, `a`.`RefreshTokenExpiryTime`, `a`.`SecurityStamp`, `a`.`TwoFactorEnabled`, `a`.`UserName`
+FROM `AspNetUsers` AS `a`
+WHERE `a`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+Information - 20101 - Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (Size = 255), @p18='?' (Size = 255), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p19='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = DateTime), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+INSERT INTO `AspNetUserRoles` (`RoleId`, `UserId`)
+VALUES (@p0, @p1);
+UPDATE `AspNetUsers` SET `AccessFailedCount` = @p2, `ConcurrencyStamp` = @p3, `Email` = @p4, `EmailConfirmed` = @p5, `LockoutEnabled` = @p6, `LockoutEnd` = @p7, `NormalizedEmail` = @p8, `NormalizedUserName` = @p9, `PasswordHash` = @p10, `PhoneNumber` = @p11, `PhoneNumberConfirmed` = @p12, `RefreshToken` = @p13, `RefreshTokenExpiryTime` = @p14, `SecurityStamp` = @p15, `TwoFactorEnabled` = @p16, `UserName` = @p17
+WHERE `Id` = @p18 AND `ConcurrencyStamp` = @p19;
+SELECT ROW_COUNT();
+Information - 1 - User renan@example.com added to the Admin role.
+Information - 0 - ### Executando -> OnActionExecuted
+Information - 0 - ############################################
+Information - 0 - 2:32:08 PM
+Information - 0 - ModelState: True
+Information - 0 - ############################################

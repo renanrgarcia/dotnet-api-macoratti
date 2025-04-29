@@ -73,8 +73,8 @@ namespace ApiCatalogo.Controllers
             return Ok(_mapper.Map<IEnumerable<ProductDTO>>(products));
         }
 
-        [Authorize]
         [HttpGet]
+        [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<IEnumerable<ProductDTO>>> Get()
         {
             var products = await _unitOfWork.ProductRepository.GetAllAsync();

@@ -70,8 +70,6 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
-builder.Services.AddAuthorization();
-
 string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -102,6 +100,17 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
     };
 });
+
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"))
+    .AddPolicy("SuperAdminOnly", policy =>
+        policy.RequireRole("Admin").RequireClaim("id", "renan"))
+    .AddPolicy("UserOnly", policy => policy.RequireRole("User"))
+    .AddPolicy("ExclusiveOnly", policy =>
+        policy.RequireAssertion(context =>
+            context.User.HasClaim(c => c.Type == "id" && c.Value == "renan") ||
+            context.User.IsInRole("SuperAdmin")));
+
 builder.Services.AddScoped<ITokenService, TokenService>();
 
 // // Forces to use like before .net 7, forcing to use [FromServices] attribute

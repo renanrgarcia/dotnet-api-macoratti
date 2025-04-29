@@ -19,7 +19,7 @@ namespace ApiCatalogo.Controllers
 
         public CategoriesController(ILogger<CategoriesController> logger,
                                     IUnitOfWork unitOfWork)
-        { 
+        {
             _logger = logger;
             _unitOfWork = unitOfWork;
         }
@@ -132,6 +132,7 @@ namespace ApiCatalogo.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize(Policy = "AdminOnly")]
         public async Task<ActionResult<CategoryDTO>> Delete(int id)
         {
             var category = await _unitOfWork.CategoryRepository.GetAsync(c => c.CategoryId == id);
