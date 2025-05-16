@@ -29,6 +29,19 @@ builder.Services.AddControllers(options =>
 })
 .AddNewtonsoftJson();
 
+var AllowedSpecificOrigins = "_allowedSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: AllowedSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("https://apirequest.io")
+                                .WithMethods("GET", "POST")
+                                .AllowAnyHeader();
+                      });
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -70,7 +83,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
-string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+string? mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -142,6 +155,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+
+app.UseCors(AllowedSpecificOrigins);
 
 app.UseAuthorization();
 
