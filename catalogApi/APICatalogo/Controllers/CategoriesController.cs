@@ -6,14 +6,15 @@ using ApiCatalogo.Repositories.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using System.Text.Json;
 using X.PagedList;
 
 namespace ApiCatalogo.Controllers
 {
-    [EnableCors("AllowedSpecificOrigins")]
     [ApiController]
     [Route("[controller]")]
+    [EnableRateLimiting("fixedwindow")]
     public class CategoriesController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -27,6 +28,7 @@ namespace ApiCatalogo.Controllers
         }
 
         [HttpGet]
+        [DisableRateLimiting]
         //[Authorize]
         public async Task<ActionResult<IEnumerable<CategoryDTO>>> Get()
         {
@@ -104,14 +106,14 @@ namespace ApiCatalogo.Controllers
 
             var category = categoryDTO.ToCategory();
 
-            var createdCategory = _unitOfWork.CategoryRepository.Create(category);
+            var createdCategory = _unitOfWork.CategoryRepository.Create(category!);
             await _unitOfWork.CommitAsync();
 
             var newCategoryDTO = createdCategory.ToCategoryDTO();
 
             return new CreatedAtRouteResult("GetCategory", new
             {
-                id = newCategoryDTO.CategoryId
+                id = newCategoryDTO!.CategoryId
             }, newCategoryDTO);
         }
 
@@ -126,10 +128,10 @@ namespace ApiCatalogo.Controllers
 
             var category = categoryDTO.ToCategory();
 
-            _unitOfWork.CategoryRepository.Update(category);
+            _unitOfWork.CategoryRepository.Update(category!);
             await _unitOfWork.CommitAsync();
 
-            var updatedCategoryDTO = category.ToCategoryDTO();
+            var updatedCategoryDTO = category!.ToCategoryDTO();
 
             return Ok(updatedCategoryDTO);
         }
