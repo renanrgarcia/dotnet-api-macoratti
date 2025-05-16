@@ -29,17 +29,17 @@ builder.Services.AddControllers(options =>
 })
 .AddNewtonsoftJson();
 
-var AllowedSpecificOrigins = "_allowedSpecificOrigins";
-
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: AllowedSpecificOrigins,
+    options.AddPolicy("AllowedSpecificOrigins",
                       policy =>
                       {
-                          policy.WithOrigins("https://apirequest.io")
+                          policy.WithOrigins("https://localhost:7132")
                                 .WithMethods("GET", "POST")
                                 .AllowAnyHeader();
                       });
+
+
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -158,7 +158,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-app.UseCors(AllowedSpecificOrigins);
+app.UseCors();
 
 app.UseAuthorization();
 

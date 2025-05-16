@@ -4,12 +4,14 @@ using ApiCatalogo.Models;
 using ApiCatalogo.Pagination;
 using ApiCatalogo.Repositories.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using X.PagedList;
 
 namespace ApiCatalogo.Controllers
 {
+    [EnableCors("AllowedSpecificOrigins")]
     [ApiController]
     [Route("[controller]")]
     public class CategoriesController : ControllerBase
@@ -25,7 +27,7 @@ namespace ApiCatalogo.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult<IEnumerable<CategoryDTO>>> Get()
         {
             var categories = await _unitOfWork.CategoryRepository.GetAllAsync();
@@ -38,6 +40,7 @@ namespace ApiCatalogo.Controllers
             return Ok(categoriesDTO);
         }
 
+        [DisableCors]
         [HttpGet("{id:int}", Name = "GetCategory")]
         public async Task<ActionResult<CategoryDTO>> Get(int id)
         {
