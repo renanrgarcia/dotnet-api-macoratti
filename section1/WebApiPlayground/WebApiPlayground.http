@@ -4,3 +4,8 @@ GET {{WebApiPlayground_HostAddress}}/numbers
 Accept: application/json
 
 ###
+
+GET {{WebApiPlayground_HostAddress}}/numbers/five
+Accept: application/json
+
+###

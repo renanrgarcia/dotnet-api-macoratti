@@ -1,9 +1,25 @@
 //Approach using WebApplicationBuilder
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using WebApiPlayground.Clients;
 using WebApiPlayground.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 {
-    builder.Services.AddSingleton<NumbersService>();
+    builder.Services.AddScoped<NumbersService>();
+
+    //ServiceDescriptor serviceDescriptor = new(
+    //    typeof(INumbersClient),
+    //    typeof(NumberThreeClient),
+    //    ServiceLifetime.Scoped);
+
+    //builder.Services.Add(serviceDescriptor);
+
+    //builder.Services.TryAddScoped<INumbersClient, NumberThreeClient>();
+    //builder.Services.TryAddScoped<INumbersClient, NumberFiveClient>();
+
+    builder.Services.TryAddScoped<INumbersClient, NumberThreeClient>();
+    builder.Services.TryAddScoped<INumbersClient, NumberFiveClient>();
+
     // Adds Controllers services to the DI container
     builder.Services.AddControllers();
 }
@@ -12,6 +28,16 @@ var app = builder.Build();
 {
     // Configure the Controllers middleware
     app.MapControllers();
+
+    //app.Use(async (httpContext, next) =>
+    //{
+    //    var client = httpContext.RequestServices.GetRequiredService<NumberFiveClient>();
+
+    //    client.IncrementNumber();
+
+    //    await next();
+    //});
+
     app.Run();
 }
 
